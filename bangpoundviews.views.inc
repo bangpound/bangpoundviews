@@ -7,7 +7,7 @@ function bangpoundviews_views_plugins() {
         'title' => t('Semantic HTML list'),
         'help' => t('Displays rows as an HTML list.'),
         'handler' => 'semanticviews_plugin_style_list',
-        'theme' => 'item_list',
+        'theme' => 'item_list__view',
         'uses row plugin' => TRUE,
         'uses row class' => TRUE,
         'uses options' => TRUE,
