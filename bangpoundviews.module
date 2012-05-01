@@ -14,7 +14,7 @@ function bangpoundviews_process_node(&$variables, $type) {
       case 'item_list':
         $id = $node->view->row_index;
         $node->view->row_attributes[$id] = $variables['attributes_array'];
-        $node->view->row_attributes[$id]['class'] = $variables['classes_array'];
+        $node->view->row_attributes[$id]['class'] = array_map('views_clean_css_identifier', $variables['classes_array']);
         break;
     }
   }

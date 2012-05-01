@@ -48,7 +48,7 @@ class semanticviews_plugin_style_list extends views_plugin_style_list {
         foreach ($set['rows'] as $index => $row) {
           $item = $this->view->row_attributes[$index];
           if ($row_class = $this->get_row_class($id)) {
-            $item['class'][] = $row_class;
+            $item['class'][] = views_clean_css_identifier($row_class);
           }
           $item['data'] = $row;
           $items[] = $item;
@@ -66,9 +66,10 @@ class semanticviews_plugin_style_list extends views_plugin_style_list {
           $variables['title'] = $set['group'];
         }
         if (!empty($this->options['class'])) {
-          $variables['attributes'] = array('class' => $this->options['class']);
+          $class = explode(' ', $this->options['class']);
+          $class = array_map('views_clean_css_identifier', $class);
+          $variables['attributes'] = array('class' => $class);
         }
-
 
         $output .= theme($this->theme_functions(), $variables);
       }
