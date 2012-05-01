@@ -1,0 +1,21 @@
+<?php
+
+/**
+ * Implements hook_views_api().
+ */
+function bangpoundviews_views_api() {
+  return array("version" => "3.0");
+}
+
+function bangpoundviews_process_node(&$variables, $type) {
+  $node = $variables['node'];
+  if (isset($node->view)) {
+    switch ($node->view->display_handler->get_option('style_plugin')) {
+      case 'item_list':
+        $id = $node->view->row_index;
+        $node->view->row_attributes[$id] = $variables['attributes_array'];
+        $node->view->row_attributes[$id]['class'] = $variables['classes_array'];
+        break;
+    }
+  }
+}

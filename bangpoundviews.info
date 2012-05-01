@@ -1,0 +1,7 @@
+name = !&# Views
+core = 7.x
+package = Custom
+description = custom module hosted at https://github.com/bangpound/bangpoundviews
+php = 5.2.4
+files[] = semanticviews_plugin_style_list.inc
+files[] = semanticviews_plugin_style_default.inc
