@@ -47,7 +47,7 @@ class semanticviews_plugin_style_list extends views_plugin_style_list {
         $items = array();
         foreach ($set['rows'] as $index => $row) {
           $item = $this->view->row_attributes[$index];
-          if ($row_class = $this->get_row_class($id)) {
+          if ($row_class = $this->get_row_class($index)) {
             $item['class'][] = views_clean_css_identifier($row_class);
           }
           $item['data'] = $row;
